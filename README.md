@@ -106,7 +106,7 @@ Since this is a custom-built tool, follow these steps to install it in your brow
 
 | Popup Interface | Equalizer Settings |
 | :---: | :---: |
-| <img src="../audiohd-pro/icons/popup.png" width="300"> | <img src="../audiohd-pro/icons/options.png" width="300"> |
+| <img src="icons/popup.png" width="300"> | <img src="icons/options.png" width="300"> |
 
 ---
 
