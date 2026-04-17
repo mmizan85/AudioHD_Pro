@@ -1,7 +1,7 @@
 # [Insert Extension Name, e.g., SonicFlow HD] 🎧
 
 <p align="center">
-  <img src="../icons/icon128.png" alt="Extension Logo" width="120" height="120">
+  <img src="icons/icon128.png" alt="Extension Logo" width="120" height="120">
 </p>
 
 <p align="center">
