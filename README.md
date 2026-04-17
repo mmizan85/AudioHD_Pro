@@ -1,7 +1,7 @@
 # [Insert Extension Name, e.g., SonicFlow HD] 🎧
 
 <p align="center">
-  <img src="../audiohd-pro/icons/icon128.png" alt="Extension Logo" width="120" height="120">
+  <img src="../icons/icon128.png" alt="Extension Logo" width="120" height="120">
 </p>
 
 <p align="center">
@@ -35,7 +35,7 @@ Whether you are listening to **Spotify**, **SoundCloud**, **Apple Music**, or wa
 
 ### 🌍 Universal Compatibility
 
-* **Cross-Origin Capture:** Advanced CORS handling to work seamlessly on **Spotify, SoundCloud, and Apple Music**.
+* **Cross-Origin Capture:** Advanced CORS handling to work seamlessly on **YouTube, YouTobe Music, and etc**.
 * **Shadow DOM Detection:** Deep-crawling technology to find hidden media elements in modern web apps.
 
 ### 🧠 Intelligent Logic
