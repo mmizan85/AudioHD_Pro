@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioHD Pro — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── Sidebar ─────────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-icon">
+          <img src="../icons/icon48.png" alt="Logo">
+        </span>
+        <div>
+          <div class="logo-name">AudioHD <em>Pro</em></div>
+          <div class="logo-version">v1.0.0</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-section="general">
+          <span class="nav-icon">🎛️</span> General
+        </a>
+        <a class="nav-item" data-section="compressor">
+          <span class="nav-icon">📊</span> Compressor
+        </a>
+        <a class="nav-item" data-section="reverb">
+          <span class="nav-icon">🏛️</span> Reverb &amp; Spatial
+        </a>
+        <a class="nav-item" data-section="profiles">
+          <span class="nav-icon">🌐</span> Site Profiles
+        </a>
+        <a class="nav-item" data-section="shortcuts">
+          <span class="nav-icon">⌨️</span> Shortcuts
+        </a>
+        <a class="nav-item" data-section="advanced">
+          <span class="nav-icon">🔬</span> Advanced
+        </a>
+        <a class="nav-item" data-section="about">
+          <span class="nav-icon">ℹ️</span> About
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-secondary" id="exportBtn">⬆ Export</button>
+        <button class="btn-secondary" id="importBtn">⬇ Import</button>
+        <input type="file" id="importFile" accept=".json" style="display:none">
+      </div>
+    </aside>
+
+    <!-- ── Main Content ──────────────────────────────────────────── -->
+    <main class="main-content">
+
+      <!-- ── GENERAL ─────────────────────────────────────────────── -->
+      <section class="settings-section active" id="section-general">
+        <h2 class="section-title">General Settings</h2>
+
+        <div class="card">
+          <div class="card-header">Default Volume</div>
+          <div class="form-row">
+            <label class="form-label">Startup Volume
+              <span class="form-hint">Applied when you open a new tab.</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="opt-volume" min="0" max="600" step="1" value="100">
+              <span class="val-badge" id="opt-volume-val">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Default EQ Preset</div>
+          <div class="form-row">
+            <label class="form-label">Startup Preset</label>
+            <select id="opt-preset" class="select-input">
+              <option value="flat">Flat</option>
+              <option value="bass">Bass Boosted</option>
+              <option value="vocal">Vocal Clarity</option>
+              <option value="cinematic">Cinematic</option>
+              <option value="night">Night Mode</option>
+              <option value="rock">Rock</option>
+              <option value="pop">Pop</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Default Effects</div>
+          <div class="toggle-list">
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">Compressor</div>
+                <div class="toggle-hint">Dynamic range control for balanced listening</div>
+              </div>
+              <label class="big-toggle">
+                <input type="checkbox" id="opt-compressor-enabled" checked>
+                <span class="big-track"><span class="big-thumb"></span></span>
+              </label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">Sub-Bass Enhancer</div>
+                <div class="toggle-hint">Boosts frequencies below 80Hz</div>
+              </div>
+              <label class="big-toggle">
+                <input type="checkbox" id="opt-subBass">
+                <span class="big-track"><span class="big-thumb"></span></span>
+              </label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">HD Crystalizer</div>
+                <div class="toggle-hint">Harmonic exciter to sharpen compressed audio</div>
+              </div>
+              <label class="big-toggle">
+                <input type="checkbox" id="opt-crystal">
+                <span class="big-track"><span class="big-thumb"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-primary" id="saveGeneralBtn">Save General Settings</button>
+        </div>
+      </section>
+
+      <!-- ── COMPRESSOR ──────────────────────────────────────────── -->
+      <section class="settings-section" id="section-compressor">
+        <h2 class="section-title">Dynamics Compressor</h2>
+        <p class="section-desc">
+          The compressor smooths out the dynamic range — loud parts become quieter, quiet
+          parts become louder. Think of it as an automatic volume leveler.
+        </p>
+
+        <div class="card">
+          <div class="form-row">
+            <label class="form-label">Threshold
+              <span class="form-hint">Level at which compression starts (dBFS)</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="comp-threshold" min="-100" max="0" step="1" value="-24">
+              <span class="val-badge" id="comp-threshold-val">-24 dB</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Knee
+              <span class="form-hint">Softness of compression onset (dB)</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="comp-knee" min="0" max="40" step="1" value="30">
+              <span class="val-badge" id="comp-knee-val">30 dB</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Ratio
+              <span class="form-hint">Compression ratio (N:1)</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="comp-ratio" min="1" max="20" step="0.5" value="12">
+              <span class="val-badge" id="comp-ratio-val">12:1</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Attack
+              <span class="form-hint">Time before compression engages (ms)</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="comp-attack" min="0" max="1" step="0.001" value="0.003">
+              <span class="val-badge" id="comp-attack-val">3ms</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Release
+              <span class="form-hint">Time for compression to disengage (ms)</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="comp-release" min="0" max="1" step="0.01" value="0.25">
+              <span class="val-badge" id="comp-release-val">250ms</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-primary" id="saveCompBtn">Save Compressor Settings</button>
+        </div>
+      </section>
+
+      <!-- ── REVERB & SPATIAL ────────────────────────────────────── -->
+      <section class="settings-section" id="section-reverb">
+        <h2 class="section-title">Reverb &amp; 3D Spatial Audio</h2>
+
+        <div class="card">
+          <div class="card-header">Reverb</div>
+          <div class="form-row">
+            <label class="form-label">Room Size</label>
+            <select id="reverb-room" class="select-input">
+              <option value="small">Small Room</option>
+              <option value="medium" selected>Medium Hall</option>
+              <option value="large">Concert Hall</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Wet Mix
+              <span class="form-hint">Amount of reverb blended in</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="reverb-wet" min="0" max="1" step="0.01" value="0.3">
+              <span class="val-badge" id="reverb-wet-val">30%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">3D Spatial Audio (HRTF Panner)</div>
+          <div class="form-row">
+            <label class="form-label">X Position
+              <span class="form-hint">Left ← → Right</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="spatial-x" min="-10" max="10" step="0.1" value="0">
+              <span class="val-badge" id="spatial-x-val">0</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Y Position
+              <span class="form-hint">Down ← → Up</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="spatial-y" min="-10" max="10" step="0.1" value="0">
+              <span class="val-badge" id="spatial-y-val">0</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Z Position
+              <span class="form-hint">Front ← → Back</span>
+            </label>
+            <div class="slider-with-value">
+              <input type="range" id="spatial-z" min="-10" max="10" step="0.1" value="1">
+              <span class="val-badge" id="spatial-z-val">1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn-primary" id="saveReverbBtn">Save Reverb &amp; Spatial</button>
+        </div>
+      </section>
+
+      <!-- ── SITE PROFILES ───────────────────────────────────────── -->
+      <section class="settings-section" id="section-profiles">
+        <h2 class="section-title">Site Profiles</h2>
+        <p class="section-desc">
+          AudioHD Pro automatically loads the saved profile when you visit a site.
+        </p>
+
+        <div class="card">
+          <div id="profilesList" class="profiles-list">
+            <div class="empty-state">No site profiles saved yet.<br>
+              Use the popup's "Save Site Profile" button while on any site.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SHORTCUTS ───────────────────────────────────────────── -->
+      <section class="settings-section" id="section-shortcuts">
+        <h2 class="section-title">Keyboard Shortcuts</h2>
+        <p class="section-desc">
+          Shortcuts are active on any page where audio is playing.
+          They won't fire when an input field is focused.
+        </p>
+
+        <div class="card">
+          <div class="toggle-list">
+            <div class="toggle-row">
+              <div><div class="toggle-label">Volume Up</div></div>
+              <input class="shortcut-input" id="sc-volumeUp" type="text" value="ArrowUp" readonly>
+            </div>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Volume Down</div></div>
+              <input class="shortcut-input" id="sc-volumeDown" type="text" value="ArrowDown" readonly>
+            </div>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Toggle EQ</div></div>
+              <input class="shortcut-input" id="sc-toggleEQ" type="text" value="KeyE" readonly>
+            </div>
+            <div class="toggle-row">
+              <div><div class="toggle-label">Next Preset</div></div>
+              <input class="shortcut-input" id="sc-nextPreset" type="text" value="KeyP" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="shortcut-hint">Click a field and press a key to change it.</div>
+
+        <div class="card-actions">
+          <button class="btn-primary" id="saveShortcutsBtn">Save Shortcuts</button>
+        </div>
+      </section>
+
+      <!-- ── ADVANCED ────────────────────────────────────────────── -->
+      <section class="settings-section" id="section-advanced">
+        <h2 class="section-title">Advanced</h2>
+
+        <div class="card">
+          <div class="toggle-list">
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">Developer / Debug Mode</div>
+                <div class="toggle-hint">
+                  Logs real-time audio node states, peak levels, and graph info to the console.
+                </div>
+              </div>
+              <label class="big-toggle">
+                <input type="checkbox" id="opt-debug">
+                <span class="big-track"><span class="big-thumb"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card danger-zone">
+          <div class="card-header danger">Danger Zone</div>
+          <div class="form-row">
+            <div>
+              <div class="toggle-label">Reset All Settings</div>
+              <div class="toggle-hint">Clears all settings, presets and site profiles.</div>
+            </div>
+            <button class="btn-danger" id="resetAllBtn">Reset Everything</button>
+          </div>
+        </div>
+      </section>
+
+        <!-- ── ABOUT ────────────────────────────────────────────── -->  
+      <section class="settings-section" id="section-about">
+        <div class = "about-content">
+          <div class = "about-text">
+            <h2 class="section-title">About AudioHD Pro</h2>
+              <p class="section-desc">
+                AudioHD Pro is a powerful browser extension that enhances your audio experience with advanced features like a customizable equalizer, dynamic range compressor, reverb effects, and 3D spatial audio. Whether you're listening to music, watching movies, or playing games, AudioHD Pro gives you full control over your sound, allowing you to tailor it to your preferences. With site-specific profiles and keyboard shortcuts, you can easily switch settings on the fly for different websites. Experience your audio like never before with AudioHD Pro!
+              </p>
+            </div>
+            <div class = "about-image">
+              <img src="../icons/icon128.png" alt="AudioHD Pro Screenshot">
+            </div>
+            <div class="license">
+              <h2 class="section-title">LICENSE</h2>
+                <p class="section-desc">
+                  AudioHD Pro is licensed under the MIT License. See the LICENSE file for more information.
+                </p>
+
+            </div>
+            <div class="contact">
+              <h2 class="section-title">Contact &amp; Contributing</h2>
+                <p class="section-desc">
+                  For bug reports, feature requests, or contributions, please visit our GitHub repository.
+                </p>
+            </div>
+            <div class ="Developer">
+              <h2 class="section-title">Developer</h2>
+                <p class="section-desc">
+                  Developed by Mohammod Mizan. Passionate about audio tech and open-source software.
+                </p>
+              <a href="https://github.com/mmizan85/AudioHD_Pro" target="_blank" class="btn-primary">View on GitHub</a>
+          </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

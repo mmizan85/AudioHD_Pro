@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudioHD Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <div class="popup-root">
+
+    <!-- ── Header ─────────────────────────────────────────────── -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon"><img src="../icons/icon48.png" alt="Logo"></span>
+        <span class="logo-text">AudioHD <em>Pro</em></span>
+      </div>
+      <div class="header-right">
+        <span class="site-label" id="siteLabel">—</span>
+        <label class="power-toggle" title="Enable / Disable">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="toggle-track">
+            <span class="toggle-thumb"></span>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <!-- ── Visualizer ─────────────────────────────────────────── -->
+    <section class="visualizer-section">
+      <canvas id="visualizer" width="350" height="72"></canvas>
+      <div class="vis-glow"></div>
+    </section>
+
+    <!-- ── Volume ─────────────────────────────────────────────── -->
+    <section class="volume-section">
+      <div class="section-label">
+        <span>Volume Boost</span>
+        <span class="value-badge" id="volumeValue">100%</span>
+      </div>
+      <div class="slider-row">
+        <span class="icon">🔈</span>
+        <input type="range" id="volumeSlider" min="0" max="600" step="1" value="100"
+               class="slider volume-slider">
+        <span class="icon">🔊</span>
+      </div>
+    </section>
+
+    <!-- ── Presets ─────────────────────────────────────────────── -->
+    <section class="preset-section">
+      <div class="section-label"><span>EQ Preset</span></div>
+      <div class="preset-pills" id="presetPills">
+        <button class="pill active" data-preset="flat">Flat</button>
+        <button class="pill" data-preset="bass">Bass</button>
+        <button class="pill" data-preset="vocal">Vocal</button>
+        <button class="pill" data-preset="cinematic">Cinema</button>
+        <button class="pill" data-preset="night">Night</button>
+        <button class="pill" data-preset="rock">Rock</button>
+        <button class="pill" data-preset="pop">Pop</button>
+      </div>
+    </section>
+
+    <!-- ── 10-Band EQ ─────────────────────────────────────────── -->
+    <section class="eq-section">
+      <div class="section-label">
+        <span>10-Band Equalizer</span>
+        <button class="reset-btn" id="eqResetBtn" title="Reset EQ to flat">Reset</button>
+      </div>
+      <div class="eq-bands" id="eqBands">
+        <!-- Dynamically populated in popup.js -->
+      </div>
+    </section>
+
+    <!-- ── Effects Toggles ────────────────────────────────────── -->
+    <section class="effects-section">
+      <div class="section-label"><span>Effects</span></div>
+      <div class="effects-grid">
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxCompressor" checked>
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">Compressor</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxSubBass">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">Sub Bass</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxCrystalizer">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">HD Crystal</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxReverb">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">Reverb</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxSpatial">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">3D Spatial</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxVocalRemover">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">Vocal Off</span>
+        </div>
+
+        <div class="effect-item">
+          <label class="fx-toggle">
+            <input type="checkbox" id="fxMonoStereo">
+            <span class="fx-track"></span>
+          </label>
+          <span class="fx-label">Mono→Stereo</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Footer ─────────────────────────────────────────────── -->
+    <footer class="footer">
+      <button class="footer-btn" id="saveSiteBtn" title="Save settings for this site">
+        <span>💾</span> Save Site Profile
+      </button>
+      <a class="footer-btn" id="optionsLink" href="../options/options.html" target="_blank">
+        <span>⚙️</span> Settings
+      </a>
+    </footer>
+
+  </div><!-- .popup-root -->
+
+  <script src="popup.js"></script>
+</body>
+</html>
